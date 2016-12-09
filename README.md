@@ -1,7 +1,11 @@
 # Sidetiq::Timezone
 
-This library adds time zone support to Sidetiq.  You can name a time
-zone for Sidetiq to use or just let it honor the value of `Time.zone`.
+This library makes Sidetiq use the application time zone instead of
+the system time zone, which is typically determined by /etc/localtime
+or the TZ environment variable.
+
+You can tell it to use a specific time zone, otherwise the value of
+`Time.zone` (defined by ActiveSupport/Rails) is implied.
 
 ## Installation
 
