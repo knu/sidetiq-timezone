@@ -4,6 +4,14 @@ require 'spec_helper'
 Sidetiq.logger = Logger.new(File.open(IO::NULL, 'w'))
 
 describe Sidetiq::Timezone do
+  before do
+    ENV['TZ'], $TZ = 'America/New_York', ENV['TZ']
+  end
+
+  after do
+    ENV['TZ'] = $TZ
+  end
+
   it 'has a version number' do
     expect(Sidetiq::Timezone::VERSION).not_to be nil
   end
