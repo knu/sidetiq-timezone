@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'sidetiq/timezone/version'
+require 'sidetiq-timezone/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "sidetiq-timezone"
-  spec.version       = Sidetiq::Timezone::VERSION
+  spec.version       = SidetiqTimezone::VERSION
   spec.authors       = ["Akinori MUSHA"]
   spec.email         = ["knu@idaemons.org"]
 

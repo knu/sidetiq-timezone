@@ -3,7 +3,7 @@ require 'spec_helper'
 # Disable logging
 Sidetiq.logger = Logger.new(File.open(IO::NULL, 'w'))
 
-describe Sidetiq::Timezone do
+describe SidetiqTimezone do
   before do
     ENV['TZ'], $TZ = 'America/New_York', ENV['TZ']
   end
@@ -13,7 +13,7 @@ describe Sidetiq::Timezone do
   end
 
   it 'has a version number' do
-    expect(Sidetiq::Timezone::VERSION).not_to be nil
+    expect(SidetiqTimezone::VERSION).not_to be nil
   end
 
   describe 'Sidetiq.clock' do
