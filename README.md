@@ -48,9 +48,14 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Version History
 
+- 0.3.0
+
+  Change the namespace from Sidetiq::Timezone to SidetiqTimezone and
+  sidetiq/timezone to sidetiq-timezone to avoid pollution
+
 - 0.2.0
 
-  Support Sidetiq 0.8 (no functional change, just dependency updates)
+  Support Sidetiq 0.7 (no functional change, just dependency updates)
 
 - 0.1.0
 
