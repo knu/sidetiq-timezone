@@ -77,5 +77,27 @@ describe SidetiqTimezone do
         expect(Sidetiq.clock.time_zone).to equal Time.zone
       end
     end
+
+    describe 'schedule.next_occurrence' do
+      let!(:now) { Time.zone.now }
+      let!(:schedule_today) { now.change(hour: 10) }
+      let!(:schedule_tomorrow) { now.tomorrow.change(hour: 10) }
+
+      let!(:time_expectations) {
+        [
+          [schedule_today,    now.change(hour: 9)],
+          [schedule_tomorrow, now.change(hour: 10)],
+          [schedule_tomorrow, now.change(hour: 11)],
+        ]
+      }
+
+      it 'conforms to the time zone' do
+        time_expectations.each { |expected, time|
+          expect(@worker.schedule.next_occurrence(time)).to eq(expected)
+          expect(@worker.schedule.next_occurrence(time.to_time)).to eq(expected)
+          expect(@worker.schedule.next_occurrence(time.to_time.utc)).to eq(expected)
+        }
+      end
+    end
   end
 end
